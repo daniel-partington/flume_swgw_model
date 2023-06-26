@@ -1,0 +1,31 @@
+! Inflow to Flume for experiment 2
+
+clear chosen nodes
+	choose node
+	0.0 0.0 0.6
+	choose node
+	0.0 0.25 0.6
+	create node set
+	flume_in
+
+boundary condition
+        type
+        flux nodal
+		node set
+		flume_in
+		time value table
+			0.0 0.0000000000000
+			7776000.0 0.0000266666666
+			7777816.0 0.0000800000000
+			7779273.0 0.0001119166600
+			7780800.0 0.0001533333300
+			7783020.0 0.0001750000000
+			7785004.0 0.0001875000000
+			7786850.0 0.0002041666000
+			7788120.0 0.0002099999000
+			7789800.0 0.0000000000000
+			7790000.0 0.0000000000000
+		end
+tecplot output
+end
+
