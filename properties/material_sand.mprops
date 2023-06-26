@@ -1,0 +1,65 @@
+! Flume aquifer
+
+!---------- Sand Flume ------------
+sand
+k isotropic
+    3.2E-4
+porosity
+0.4
+unsaturated VAN GENUCHTEN FUNCTIONS
+alpha
+     12.05 !.243911082878
+beta
+     5.67 !2.68
+residual saturation
+0.05 !779463371075
+Minimum relative permeability
+0.001
+table smoothness factor
+0.0000001
+generate tables from unsaturated functions
+end functions
+end material
+
+!---------- Flume base ------------
+flume_base
+k isotropic
+    10.0
+porosity
+1.0
+unsaturated VAN GENUCHTEN FUNCTIONS
+alpha
+     12.05 !.243911082878
+beta
+     5.67 !2.68
+residual saturation
+0.05 !779463371075
+Minimum relative permeability
+0.001
+table smoothness factor
+0.0000001
+generate tables from unsaturated functions
+end functions
+end material
+
+
+!---------- Riverbed Flume ------------
+sand_riverbed
+k isotropic
+    2.4E-4
+porosity
+0.4
+unsaturated VAN GENUCHTEN FUNCTIONS
+alpha
+     3.4800000E+00
+beta
+    1.7500000E+00
+residual saturation
+0.05
+Minimum relative permeability
+0.001
+table smoothness factor
+0.0000001
+generate tables from unsaturated functions
+end functions
+end material

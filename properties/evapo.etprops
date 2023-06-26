@@ -1,0 +1,39 @@
+! ET materials
+
+!---------- Floodplain ------------
+et_floodplain
+
+evaporation depth
+3
+
+evaporation limiting saturations
+0.001    	!minimum
+0.99		!maximum
+
+root depth
+0
+
+rdf quadratic decay function
+
+lai tables
+0 0.1
+end ! lai tables
+
+transpiration limiting saturations
+0.1  	! wilting point
+0.15   	! field capacity
+0.75  	! oxic limit
+0.95    ! anoxic limit
+
+Transpiration fitting parameters
+0.6  	! c1
+0   	! c2 zero, otherwise transpiration even when LAI is zero
+1.0  	! c3
+ 
+canopy storage parameter
+0.0
+ 
+initial interception storage
+0.0
+ 
+end ! material

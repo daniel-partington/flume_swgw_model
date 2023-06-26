@@ -1,0 +1,1065 @@
+
+! ## Observation locations for sensors:
+! Horizontal (Sx): 0.5 - 5.5 in 1 m increments
+! Depths of (y): 0.05 - 0.4 in increments of 0.05 m
+! Naming convention of sensor locations: Sx-y
+! Loggers functioned at a maximum resolution of 2 s.
+! Usable data:
+! S1-8, S2-8, S3-8, S4-8, S1-7, S2-7, S3-7, S4-7, S1-6, S2-6, S4-6, S1-5, S2-5, S3-5, S4-5, S1-4, S2-4, S3-4, S4-4, S1-3, S2-3, S4-3, S1-2, S2-2, S4-2, S1-1, S2-1
+    
+Make observation point
+S1-1
+0.5 0.0 0.0485
+
+
+Make observation point
+S1-2
+0.5 0.0 0.0985
+
+
+Make observation point
+S1-3
+0.5 0.0 0.1485
+
+
+Make observation point
+S1-4
+0.5 0.0 0.1985
+
+
+Make observation point
+S1-5
+0.5 0.0 0.2485
+
+
+Make observation point
+S1-6
+0.5 0.0 0.2985
+
+
+Make observation point
+S1-7
+0.5 0.0 0.3485
+
+
+Make observation point
+S1-8
+0.5 0.0 0.3985
+
+
+Make observation point
+S2-1
+1.5 0.0 0.0455
+
+
+Make observation point
+S2-2
+1.5 0.0 0.0955
+
+
+Make observation point
+S2-3
+1.5 0.0 0.1455
+
+
+Make observation point
+S2-4
+1.5 0.0 0.1955
+
+
+Make observation point
+S2-5
+1.5 0.0 0.2455
+
+
+Make observation point
+S2-6
+1.5 0.0 0.2955
+
+
+Make observation point
+S2-7
+1.5 0.0 0.3455
+
+
+Make observation point
+S2-8
+1.5 0.0 0.3955
+
+
+Make observation point
+S3-1
+2.5 0.0 0.0425
+
+
+Make observation point
+S3-2
+2.5 0.0 0.0925
+
+
+Make observation point
+S3-3
+2.5 0.0 0.1425
+
+
+Make observation point
+S3-4
+2.5 0.0 0.1925
+
+
+Make observation point
+S3-5
+2.5 0.0 0.2425
+
+
+Make observation point
+S3-6
+2.5 0.0 0.2925
+
+
+Make observation point
+S3-7
+2.5 0.0 0.3425
+
+
+Make observation point
+S3-8
+2.5 0.0 0.3925
+
+
+Make observation point
+S4-1
+3.5 0.0 0.0395
+
+
+Make observation point
+S4-2
+3.5 0.0 0.0895
+
+
+Make observation point
+S4-3
+3.5 0.0 0.1395
+
+
+Make observation point
+S4-4
+3.5 0.0 0.1895
+
+
+Make observation point
+S4-5
+3.5 0.0 0.2395
+
+
+Make observation point
+S4-6
+3.5 0.0 0.2895
+
+
+Make observation point
+S4-7
+3.5 0.0 0.3395
+
+
+Make observation point
+S4-8
+3.5 0.0 0.3895
+
+
+Make observation point
+S5-1
+4.5 0.0 0.0365
+
+
+Make observation point
+S5-2
+4.5 0.0 0.0865
+
+
+Make observation point
+S5-3
+4.5 0.0 0.1365
+
+
+Make observation point
+S5-4
+4.5 0.0 0.1865
+
+
+Make observation point
+S5-5
+4.5 0.0 0.2365
+
+
+Make observation point
+S5-6
+4.5 0.0 0.2865
+
+
+Make observation point
+S5-7
+4.5 0.0 0.3365
+
+
+Make observation point
+S5-8
+4.5 0.0 0.3865
+
+
+Make observation point
+S6-1
+5.5 0.0 0.0335
+
+
+Make observation point
+S6-2
+5.5 0.0 0.0835
+
+
+Make observation point
+S6-3
+5.5 0.0 0.1335
+
+
+Make observation point
+S6-4
+5.5 0.0 0.1835
+
+
+Make observation point
+S6-5
+5.5 0.0 0.2335
+
+
+Make observation point
+S6-6
+5.5 0.0 0.2835
+
+
+Make observation point
+S6-7
+5.5 0.0 0.3335
+
+
+Make observation point
+S6-8
+5.5 0.0 0.3835
+
+
+
+! Hydrographs:
+  
+use domain type
+surface
+  
+    
+!--- Hydrograph @ x = 0.0
+clear chosen nodes
+clear chosen faces
+choose node
+ 0.0 0.0 0.45
+choose node
+ 0.0 0.25 0.45
+Set hydrograph nodes
+_x0.0_
+
+!--- Hydrograph @ x = 0.1
+clear chosen nodes
+clear chosen faces
+choose node
+ 0.1 0.0 0.4497
+choose node
+ 0.1 0.25 0.4497
+Set hydrograph nodes
+_x0.1_
+
+!--- Hydrograph @ x = 0.2
+clear chosen nodes
+clear chosen faces
+choose node
+ 0.2 0.0 0.4494
+choose node
+ 0.2 0.25 0.4494
+Set hydrograph nodes
+_x0.2_
+
+!--- Hydrograph @ x = 0.3
+clear chosen nodes
+clear chosen faces
+choose node
+ 0.3 0.0 0.4491
+choose node
+ 0.3 0.25 0.4491
+Set hydrograph nodes
+_x0.3_
+
+!--- Hydrograph @ x = 0.4
+clear chosen nodes
+clear chosen faces
+choose node
+ 0.4 0.0 0.4488
+choose node
+ 0.4 0.25 0.4488
+Set hydrograph nodes
+_x0.4_
+
+!--- Hydrograph @ x = 0.5
+clear chosen nodes
+clear chosen faces
+choose node
+ 0.5 0.0 0.4485
+choose node
+ 0.5 0.25 0.4485
+Set hydrograph nodes
+_x0.5_
+
+!--- Hydrograph @ x = 0.6
+clear chosen nodes
+clear chosen faces
+choose node
+ 0.6 0.0 0.4482
+choose node
+ 0.6 0.25 0.4482
+Set hydrograph nodes
+_x0.6_
+
+!--- Hydrograph @ x = 0.7
+clear chosen nodes
+clear chosen faces
+choose node
+ 0.7 0.0 0.4479
+choose node
+ 0.7 0.25 0.4479
+Set hydrograph nodes
+_x0.7_
+
+!--- Hydrograph @ x = 0.8
+clear chosen nodes
+clear chosen faces
+choose node
+ 0.8 0.0 0.4476
+choose node
+ 0.8 0.25 0.4476
+Set hydrograph nodes
+_x0.8_
+
+!--- Hydrograph @ x = 0.9
+clear chosen nodes
+clear chosen faces
+choose node
+ 0.9 0.0 0.4473
+choose node
+ 0.9 0.25 0.4473
+Set hydrograph nodes
+_x0.9_
+
+!--- Hydrograph @ x = 1.0
+clear chosen nodes
+clear chosen faces
+choose node
+ 1.0 0.0 0.447
+choose node
+ 1.0 0.25 0.447
+Set hydrograph nodes
+_x1.0_
+
+!--- Hydrograph @ x = 1.1
+clear chosen nodes
+clear chosen faces
+choose node
+ 1.1 0.0 0.4467
+choose node
+ 1.1 0.25 0.4467
+Set hydrograph nodes
+_x1.1_
+
+!--- Hydrograph @ x = 1.2
+clear chosen nodes
+clear chosen faces
+choose node
+ 1.2 0.0 0.4464
+choose node
+ 1.2 0.25 0.4464
+Set hydrograph nodes
+_x1.2_
+
+!--- Hydrograph @ x = 1.3
+clear chosen nodes
+clear chosen faces
+choose node
+ 1.3 0.0 0.4461
+choose node
+ 1.3 0.25 0.4461
+Set hydrograph nodes
+_x1.3_
+
+!--- Hydrograph @ x = 1.4
+clear chosen nodes
+clear chosen faces
+choose node
+ 1.4 0.0 0.4458
+choose node
+ 1.4 0.25 0.4458
+Set hydrograph nodes
+_x1.4_
+
+!--- Hydrograph @ x = 1.5
+clear chosen nodes
+clear chosen faces
+choose node
+ 1.5 0.0 0.4455
+choose node
+ 1.5 0.25 0.4455
+Set hydrograph nodes
+_x1.5_
+
+!--- Hydrograph @ x = 1.6
+clear chosen nodes
+clear chosen faces
+choose node
+ 1.6 0.0 0.4452
+choose node
+ 1.6 0.25 0.4452
+Set hydrograph nodes
+_x1.6_
+
+!--- Hydrograph @ x = 1.7
+clear chosen nodes
+clear chosen faces
+choose node
+ 1.7 0.0 0.4449
+choose node
+ 1.7 0.25 0.4449
+Set hydrograph nodes
+_x1.7_
+
+!--- Hydrograph @ x = 1.8
+clear chosen nodes
+clear chosen faces
+choose node
+ 1.8 0.0 0.4446
+choose node
+ 1.8 0.25 0.4446
+Set hydrograph nodes
+_x1.8_
+
+!--- Hydrograph @ x = 1.9
+clear chosen nodes
+clear chosen faces
+choose node
+ 1.9 0.0 0.4443
+choose node
+ 1.9 0.25 0.4443
+Set hydrograph nodes
+_x1.9_
+
+!--- Hydrograph @ x = 2.0
+clear chosen nodes
+clear chosen faces
+choose node
+ 2.0 0.0 0.444
+choose node
+ 2.0 0.25 0.444
+Set hydrograph nodes
+_x2.0_
+
+!--- Hydrograph @ x = 2.1
+clear chosen nodes
+clear chosen faces
+choose node
+ 2.1 0.0 0.4437
+choose node
+ 2.1 0.25 0.4437
+Set hydrograph nodes
+_x2.1_
+
+!--- Hydrograph @ x = 2.2
+clear chosen nodes
+clear chosen faces
+choose node
+ 2.2 0.0 0.4434
+choose node
+ 2.2 0.25 0.4434
+Set hydrograph nodes
+_x2.2_
+
+!--- Hydrograph @ x = 2.3
+clear chosen nodes
+clear chosen faces
+choose node
+ 2.3 0.0 0.4431
+choose node
+ 2.3 0.25 0.4431
+Set hydrograph nodes
+_x2.3_
+
+!--- Hydrograph @ x = 2.4
+clear chosen nodes
+clear chosen faces
+choose node
+ 2.4 0.0 0.4428
+choose node
+ 2.4 0.25 0.4428
+Set hydrograph nodes
+_x2.4_
+
+!--- Hydrograph @ x = 2.5
+clear chosen nodes
+clear chosen faces
+choose node
+ 2.5 0.0 0.4425
+choose node
+ 2.5 0.25 0.4425
+Set hydrograph nodes
+_x2.5_
+
+!--- Hydrograph @ x = 2.6
+clear chosen nodes
+clear chosen faces
+choose node
+ 2.6 0.0 0.4422
+choose node
+ 2.6 0.25 0.4422
+Set hydrograph nodes
+_x2.6_
+
+!--- Hydrograph @ x = 2.7
+clear chosen nodes
+clear chosen faces
+choose node
+ 2.7 0.0 0.4419
+choose node
+ 2.7 0.25 0.4419
+Set hydrograph nodes
+_x2.7_
+
+!--- Hydrograph @ x = 2.8
+clear chosen nodes
+clear chosen faces
+choose node
+ 2.8 0.0 0.4416
+choose node
+ 2.8 0.25 0.4416
+Set hydrograph nodes
+_x2.8_
+
+!--- Hydrograph @ x = 2.9
+clear chosen nodes
+clear chosen faces
+choose node
+ 2.9 0.0 0.4413
+choose node
+ 2.9 0.25 0.4413
+Set hydrograph nodes
+_x2.9_
+
+!--- Hydrograph @ x = 3.0
+clear chosen nodes
+clear chosen faces
+choose node
+ 3.0 0.0 0.441
+choose node
+ 3.0 0.25 0.441
+Set hydrograph nodes
+_x3.0_
+
+!--- Hydrograph @ x = 3.1
+clear chosen nodes
+clear chosen faces
+choose node
+ 3.1 0.0 0.4407
+choose node
+ 3.1 0.25 0.4407
+Set hydrograph nodes
+_x3.1_
+
+!--- Hydrograph @ x = 3.2
+clear chosen nodes
+clear chosen faces
+choose node
+ 3.2 0.0 0.4404
+choose node
+ 3.2 0.25 0.4404
+Set hydrograph nodes
+_x3.2_
+
+!--- Hydrograph @ x = 3.3
+clear chosen nodes
+clear chosen faces
+choose node
+ 3.3 0.0 0.4401
+choose node
+ 3.3 0.25 0.4401
+Set hydrograph nodes
+_x3.3_
+
+!--- Hydrograph @ x = 3.4
+clear chosen nodes
+clear chosen faces
+choose node
+ 3.4 0.0 0.4398
+choose node
+ 3.4 0.25 0.4398
+Set hydrograph nodes
+_x3.4_
+
+!--- Hydrograph @ x = 3.5
+clear chosen nodes
+clear chosen faces
+choose node
+ 3.5 0.0 0.4395
+choose node
+ 3.5 0.25 0.4395
+Set hydrograph nodes
+_x3.5_
+
+!--- Hydrograph @ x = 3.6
+clear chosen nodes
+clear chosen faces
+choose node
+ 3.6 0.0 0.4392
+choose node
+ 3.6 0.25 0.4392
+Set hydrograph nodes
+_x3.6_
+
+!--- Hydrograph @ x = 3.7
+clear chosen nodes
+clear chosen faces
+choose node
+ 3.7 0.0 0.4389
+choose node
+ 3.7 0.25 0.4389
+Set hydrograph nodes
+_x3.7_
+
+!--- Hydrograph @ x = 3.8
+clear chosen nodes
+clear chosen faces
+choose node
+ 3.8 0.0 0.4386
+choose node
+ 3.8 0.25 0.4386
+Set hydrograph nodes
+_x3.8_
+
+!--- Hydrograph @ x = 3.9
+clear chosen nodes
+clear chosen faces
+choose node
+ 3.9 0.0 0.4383
+choose node
+ 3.9 0.25 0.4383
+Set hydrograph nodes
+_x3.9_
+
+!--- Hydrograph @ x = 4.0
+clear chosen nodes
+clear chosen faces
+choose node
+ 4.0 0.0 0.438
+choose node
+ 4.0 0.25 0.438
+Set hydrograph nodes
+_x4.0_
+
+!--- Hydrograph @ x = 4.1
+clear chosen nodes
+clear chosen faces
+choose node
+ 4.1 0.0 0.4377
+choose node
+ 4.1 0.25 0.4377
+Set hydrograph nodes
+_x4.1_
+
+!--- Hydrograph @ x = 4.2
+clear chosen nodes
+clear chosen faces
+choose node
+ 4.2 0.0 0.4374
+choose node
+ 4.2 0.25 0.4374
+Set hydrograph nodes
+_x4.2_
+
+!--- Hydrograph @ x = 4.3
+clear chosen nodes
+clear chosen faces
+choose node
+ 4.3 0.0 0.4371
+choose node
+ 4.3 0.25 0.4371
+Set hydrograph nodes
+_x4.3_
+
+!--- Hydrograph @ x = 4.4
+clear chosen nodes
+clear chosen faces
+choose node
+ 4.4 0.0 0.4368
+choose node
+ 4.4 0.25 0.4368
+Set hydrograph nodes
+_x4.4_
+
+!--- Hydrograph @ x = 4.5
+clear chosen nodes
+clear chosen faces
+choose node
+ 4.5 0.0 0.4365
+choose node
+ 4.5 0.25 0.4365
+Set hydrograph nodes
+_x4.5_
+
+!--- Hydrograph @ x = 4.6
+clear chosen nodes
+clear chosen faces
+choose node
+ 4.6 0.0 0.4362
+choose node
+ 4.6 0.25 0.4362
+Set hydrograph nodes
+_x4.6_
+
+!--- Hydrograph @ x = 4.7
+clear chosen nodes
+clear chosen faces
+choose node
+ 4.7 0.0 0.4359
+choose node
+ 4.7 0.25 0.4359
+Set hydrograph nodes
+_x4.7_
+
+!--- Hydrograph @ x = 4.8
+clear chosen nodes
+clear chosen faces
+choose node
+ 4.8 0.0 0.4356
+choose node
+ 4.8 0.25 0.4356
+Set hydrograph nodes
+_x4.8_
+
+!--- Hydrograph @ x = 4.9
+clear chosen nodes
+clear chosen faces
+choose node
+ 4.9 0.0 0.4353
+choose node
+ 4.9 0.25 0.4353
+Set hydrograph nodes
+_x4.9_
+
+!--- Hydrograph @ x = 5.0
+clear chosen nodes
+clear chosen faces
+choose node
+ 5.0 0.0 0.435
+choose node
+ 5.0 0.25 0.435
+Set hydrograph nodes
+_x5.0_
+
+!--- Hydrograph @ x = 5.1
+clear chosen nodes
+clear chosen faces
+choose node
+ 5.1 0.0 0.4347
+choose node
+ 5.1 0.25 0.4347
+Set hydrograph nodes
+_x5.1_
+
+!--- Hydrograph @ x = 5.2
+clear chosen nodes
+clear chosen faces
+choose node
+ 5.2 0.0 0.4344
+choose node
+ 5.2 0.25 0.4344
+Set hydrograph nodes
+_x5.2_
+
+!--- Hydrograph @ x = 5.3
+clear chosen nodes
+clear chosen faces
+choose node
+ 5.3 0.0 0.4341
+choose node
+ 5.3 0.25 0.4341
+Set hydrograph nodes
+_x5.3_
+
+!--- Hydrograph @ x = 5.4
+clear chosen nodes
+clear chosen faces
+choose node
+ 5.4 0.0 0.4338
+choose node
+ 5.4 0.25 0.4338
+Set hydrograph nodes
+_x5.4_
+
+!--- Hydrograph @ x = 5.5
+clear chosen nodes
+clear chosen faces
+choose node
+ 5.5 0.0 0.4335
+choose node
+ 5.5 0.25 0.4335
+Set hydrograph nodes
+_x5.5_
+
+!--- Hydrograph @ x = 5.6
+clear chosen nodes
+clear chosen faces
+choose node
+ 5.6 0.0 0.4332
+choose node
+ 5.6 0.25 0.4332
+Set hydrograph nodes
+_x5.6_
+
+!--- Hydrograph @ x = 5.7
+clear chosen nodes
+clear chosen faces
+choose node
+ 5.7 0.0 0.4329
+choose node
+ 5.7 0.25 0.4329
+Set hydrograph nodes
+_x5.7_
+
+!--- Hydrograph @ x = 5.8
+clear chosen nodes
+clear chosen faces
+choose node
+ 5.8 0.0 0.4326
+choose node
+ 5.8 0.25 0.4326
+Set hydrograph nodes
+_x5.8_
+
+!--- Hydrograph @ x = 5.9
+clear chosen nodes
+clear chosen faces
+choose node
+ 5.9 0.0 0.4323
+choose node
+ 5.9 0.25 0.4323
+Set hydrograph nodes
+_x5.9_
+
+!--- Hydrograph @ x = 6.0
+clear chosen nodes
+clear chosen faces
+choose node
+ 6.0 0.0 0.432
+choose node
+ 6.0 0.25 0.432
+Set hydrograph nodes
+_x6.0_
+
+!--- Hydrograph @ x = 6.1
+clear chosen nodes
+clear chosen faces
+choose node
+ 6.1 0.0 0.4317
+choose node
+ 6.1 0.25 0.4317
+Set hydrograph nodes
+_x6.1_
+
+!--- Hydrograph @ x = 6.2
+clear chosen nodes
+clear chosen faces
+choose node
+ 6.2 0.0 0.4314
+choose node
+ 6.2 0.25 0.4314
+Set hydrograph nodes
+_x6.2_
+
+!--- Hydrograph @ x = 6.3
+clear chosen nodes
+clear chosen faces
+choose node
+ 6.3 0.0 0.4311
+choose node
+ 6.3 0.25 0.4311
+Set hydrograph nodes
+_x6.3_
+
+!--- Hydrograph @ x = 6.4
+clear chosen nodes
+clear chosen faces
+choose node
+ 6.4 0.0 0.4308
+choose node
+ 6.4 0.25 0.4308
+Set hydrograph nodes
+_x6.4_
+
+!--- Hydrograph @ x = 6.5
+clear chosen nodes
+clear chosen faces
+choose node
+ 6.5 0.0 0.4305
+choose node
+ 6.5 0.25 0.4305
+Set hydrograph nodes
+_x6.5_
+
+!--- Hydrograph @ x = 6.6
+clear chosen nodes
+clear chosen faces
+choose node
+ 6.6 0.0 0.4302
+choose node
+ 6.6 0.25 0.4302
+Set hydrograph nodes
+_x6.6_
+
+!--- Hydrograph @ x = 6.7
+clear chosen nodes
+clear chosen faces
+choose node
+ 6.7 0.0 0.4299
+choose node
+ 6.7 0.25 0.4299
+Set hydrograph nodes
+_x6.7_
+
+!--- Hydrograph @ x = 6.8
+clear chosen nodes
+clear chosen faces
+choose node
+ 6.8 0.0 0.4296
+choose node
+ 6.8 0.25 0.4296
+Set hydrograph nodes
+_x6.8_
+
+!--- Hydrograph @ x = 6.9
+clear chosen nodes
+clear chosen faces
+choose node
+ 6.9 0.0 0.4293
+choose node
+ 6.9 0.25 0.4293
+Set hydrograph nodes
+_x6.9_
+
+!--- Hydrograph @ x = 7.0
+clear chosen nodes
+clear chosen faces
+choose node
+ 7.0 0.0 0.429
+choose node
+ 7.0 0.25 0.429
+Set hydrograph nodes
+_x7.0_
+
+!--- Hydrograph @ x = 7.1
+clear chosen nodes
+clear chosen faces
+choose node
+ 7.1 0.0 0.4287
+choose node
+ 7.1 0.25 0.4287
+Set hydrograph nodes
+_x7.1_
+
+!--- Hydrograph @ x = 7.2
+clear chosen nodes
+clear chosen faces
+choose node
+ 7.2 0.0 0.4284
+choose node
+ 7.2 0.25 0.4284
+Set hydrograph nodes
+_x7.2_
+
+!--- Hydrograph @ x = 7.3
+clear chosen nodes
+clear chosen faces
+choose node
+ 7.3 0.0 0.4281
+choose node
+ 7.3 0.25 0.4281
+Set hydrograph nodes
+_x7.3_
+
+!--- Hydrograph @ x = 7.4
+clear chosen nodes
+clear chosen faces
+choose node
+ 7.4 0.0 0.4278
+choose node
+ 7.4 0.25 0.4278
+Set hydrograph nodes
+_x7.4_
+
+!--- Hydrograph @ x = 7.5
+clear chosen nodes
+clear chosen faces
+choose node
+ 7.5 0.0 0.4275
+choose node
+ 7.5 0.25 0.4275
+Set hydrograph nodes
+_x7.5_
+
+!--- Hydrograph @ x = 7.6
+clear chosen nodes
+clear chosen faces
+choose node
+ 7.6 0.0 0.4272
+choose node
+ 7.6 0.25 0.4272
+Set hydrograph nodes
+_x7.6_
+
+!--- Hydrograph @ x = 7.7
+clear chosen nodes
+clear chosen faces
+choose node
+ 7.7 0.0 0.4269
+choose node
+ 7.7 0.25 0.4269
+Set hydrograph nodes
+_x7.7_
+
+!--- Hydrograph @ x = 7.8
+clear chosen nodes
+clear chosen faces
+choose node
+ 7.8 0.0 0.4266
+choose node
+ 7.8 0.25 0.4266
+Set hydrograph nodes
+_x7.8_
+
+!--- Hydrograph @ x = 7.9
+clear chosen nodes
+clear chosen faces
+choose node
+ 7.9 0.0 0.4263
+choose node
+ 7.9 0.25 0.4263
+Set hydrograph nodes
+_x7.9_
+
+!--- Hydrograph @ x = 8.0
+clear chosen nodes
+clear chosen faces
+choose node
+ 8.0 0.0 0.426
+choose node
+ 8.0 0.25 0.426
+Set hydrograph nodes
+_x8.0_

@@ -1,0 +1,19 @@
+! Flume
+
+!---------- Flume river ------------
+!
+! Reported Darcy-weisbach friction factor from experiments:
+!
+!
+flume
+x friction
+0.02 !4186654284876676
+y friction
+0.02 !4186654284876676
+rill storage height
+0.0001
+obstruction storage height
+0.0
+coupling length
+0.001 !0.1
+end ! material
