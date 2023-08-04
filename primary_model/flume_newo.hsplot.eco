@@ -1,0 +1,24 @@
+ 
+INSTRUCTION: tecplot mode                                                
+ 
+INSTRUCTION: end                                                         
+ 
+INSTRUCTION: write pm domain file                                        
+ 
+INSTRUCTION: end                                                         
+ 
+INSTRUCTION: write olf domain file                                       
+ 
+INSTRUCTION: end                                                         
+ 
+INSTRUCTION: end                                                         
+ 
+------------------------------------------------
+pm data to tecplot
+Creating tecplot file flume_newo.pm.dat                                                                                   
+ 
+------------------------------------------------
+olf data to tecplot
+Creating tecplot file flume_newo.olf.dat                                                                                  
+ 
+---- Normal exit ----
