@@ -1,0 +1,3229 @@
+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
+ @@                                                                      @@ 
+ @@   GROK: Pre-processor for HydroGeoSphere                             @@
+ @@                                                                      @@ 
+ @@   REVISION:   1401M                                                  @@
+ @@   BUILD DATE: 20121128                                               @@
+ @@   BUILD INFO: 64bit                                                  @@
+ @@   DIRECTORY:  E:\rtherrie\models\hgs_repository_working\             @@
+ @@                                                                      @@ 
+ @@   REPOSITORY INFORMATION:                                            @@ 
+ @@   Path: .                                                            @@
+ @@   Working Copy Root Path: E:\rtherrie\models\hgs_repository_working  @@
+ @@   URL: svn+ssh://meinzer.uwaterloo.ca/hgs/trunk                      @@
+ @@   Repository Root: svn+ssh://meinzer.uwaterloo.ca/hgs                @@
+ @@   Repository UUID: cbdd0707-f681-3e47-8d16-8894fab75c47              @@
+ @@   Revision: 1596                                                     @@
+ @@   Node Kind: directory                                               @@
+ @@   Schedule: normal                                                   @@
+ @@   Last Changed Author: mclaren                                       @@
+ @@                                                                      @@ 
+ @@                                                                      @@ 
+ @@   (c) Rene Therrien, 1993 - 2006                                     @@
+ @@       Rob McLaren                                                    @@ 
+ @@       E. A. Sudicky                                                  @@
+ @@                                                                      @@ 
+ @@                                                                      @@ 
+ @@   Version : Universite Laval - Waterloo, 20140807                    @@ 
+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
+  
+  
+------------------------------------------------------------------------
+PROBLEM TITLE
+ Flume model from Water Research Laboratory flume experiments
+TITLE EXIT
+  
+------------------------------------------------------------------------
+GRID DEFINITION SECTION
+ 
+GRID GEN: generate uniform rectangles
+  Length in x    8.00000000000000              160  rectangles
+  Length in y   0.250000000000000                1  rectangles
+  Origin (x0,y0):   0.000000000000000E+000  0.000000000000000E+000
+ 
+GRID GEN: generate layers interactive
+GEN_LYR:    base elevation                                              
+BASE:    elevation from bilinear function in xy                      
+ Bilinear function for the following range:
+ X from   0.000000000000000E+000  to    8.00000000000000     
+ Y from   0.000000000000000E+000  to   0.250000000000000     
+  z = z1 + slope_x*(x-xfrom) + curve_x*(x-xfrom)**2 + slope_y*(y-yfrom) + curve_
+ y*(y-yfrom)**2 
+  where:     z1 =  -5.000000000000000E-002
+        slope_x =  -3.000000000000000E-003
+        curve_x =   0.000000000000000E+000
+        slope_y =   0.000000000000000E+000
+        curve_y =   0.000000000000000E+000
+BASE:    end base elevation                                          
+EXIT BASE
+GEN_LYR:    new layer                                                   
+LAYER: layer name                                                  
+		Name: outflow                                                                         
+LAYER: elevation from bilinear function in xy                      
+ Bilinear function for the following range:
+ X from   0.000000000000000E+000  to    8.00000000000000     
+ Y from   0.000000000000000E+000  to   0.250000000000000     
+  z = z1 + slope_x*(x-xfrom) + curve_x*(x-xfrom)**2 + slope_y*(y-yfrom) + curve_
+ y*(y-yfrom)**2 
+  where:     z1 =   0.000000000000000E+000
+        slope_x =  -3.000000000000000E-003
+        curve_x =   0.000000000000000E+000
+        slope_y =   0.000000000000000E+000
+        curve_y =   0.000000000000000E+000
+LAYER: uniform sublayering                                         
+ Uniform sublayers            1
+LAYER: end ! new layer                                             
+EXIT LAYER
+GEN_LYR:    new layer                                                   
+LAYER: layer name                                                  
+		Name: sand                                                                            
+LAYER: elevation from bilinear function in xy                      
+ Bilinear function for the following range:
+ X from   0.000000000000000E+000  to    8.00000000000000     
+ Y from   0.000000000000000E+000  to   0.250000000000000     
+  z = z1 + slope_x*(x-xfrom) + curve_x*(x-xfrom)**2 + slope_y*(y-yfrom) + curve_
+ y*(y-yfrom)**2 
+  where:     z1 =   0.440000000000000     
+        slope_x =  -3.000000000000000E-003
+        curve_x =   0.000000000000000E+000
+        slope_y =   0.000000000000000E+000
+        curve_y =   0.000000000000000E+000
+LAYER: uniform sublayering                                         
+ Uniform sublayers           44
+LAYER: end ! new layer                                             
+EXIT LAYER
+GEN_LYR:    end ! generate layers interactive                           
+EXIT GEN_LYR
+ 
+GRID GEN: end grid generation
+GRID GENERATION EXIT
+  
+------------------------------------------------------------------------
+GRID CHECK
+ Grid OK 
+  
+------------------------------------------------------------------------
+ALTERATIONS TO DEFAULT DATA SET
+ 
+GROK: mesh to tecplot                                             
+ To file: 
+ flume_mesh.dat                                                                 
+  
+ 
+GROK: finite difference mode                                      
+ 
+GROK: unsaturated                                                 
+ 
+GROK: transient flow                                              
+ 
+GROK: dual nodes for surface flow                                 
+  Dual nodes for surface flow
+ 
+GROK: compute underrelaxation factor                              
+ 
+GROK: units: kilogram-metre-second                                
+ 
+GROK: use domain type                                             
+Operate on surface flow domains
+ 
+GROK: properties file                                             
+./properties/flume_riverbed.oprops                
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose faces top                                            
+ 
+GROK: new zone                                                    
+ Total number of surface flow zones now            1
+ Surface flow zone number 
+ Set to            1
+ New faces:          160
+ Faces already surface flow changed:            0
+ 
+GROK: clear chosen zones                                          
+ 
+GROK: choose zone number                                          
+ Overland flow zone            1  is chosen
+ 
+GROK: read properties                                             
+Search file: ./properties/flume_riverbed.oprops                
+For property called: flume                                   
+Found material flume                                             
+ 
+OPROPS:    x friction                                                  
+ 		Friction x   2.000000000000000E-002
+ 
+OPROPS:    y friction                                                  
+ 		Friction y   2.000000000000000E-002
+ 
+OPROPS:    rill storage height                                         
+ 		Rill storage height  1.000000000000000E-004
+ 
+OPROPS:    obstruction storage height                                  
+ 		Obstruction storage height   0.000000000000000E+000
+ 
+OPROPS:    coupling length                                             
+ 		Coupling length for surface/subsurface   1.000000000000000E-003
+ 
+OPROPS:    end ! material                                              
+EXIT OPROPS
+ 
+ Surface flow zone            1  has properties of 
+ flume                                   
+ 
+GROK: clear chosen zones                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: choose nodes all                                            
+ 
+GROK: create node set                                             
+ 
+GROK: clear chosen zones                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: choose nodes top                                            
+ Nodes affected:          322
+ 
+GROK: create face set                                             
+top                                                                             
+ 
+GROK: write chosen faces                                          
+ To file: 
+ top_faces                                                                      
+  
+ Faces written:            0
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: create node set                                             
+ 
+GROK: boundary condition                                          
+ 
+BC: type                                                        
+flux nodal                                                  
+BC: node set                                                    
+flume_in                                
+BC: time value table                                            
+BC: tecplot output                                              
+BC: end                                                         
+EXIT BC
+ 
+GROK: clear chosen zones                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: clear chosen segments                                       
+ 
+GROK: clear chosen elements                                       
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: create segment set                                          
+critical_depth_segment                                                          
+ 
+GROK: boundary condition                                          
+ 
+BC: type                                                        
+critical depth                                              
+BC: name                                                        
+crit_depth                              
+BC: segment set                                                 
+critical_depth_segment                  
+BC: tecplot output                                              
+BC: end                                                         
+EXIT BC
+ 
+GROK: use domain type                                             
+Operate on porous media domains
+ 
+GROK: properties file                                             
+./properties/material_sand.mprops                                                                   
+ 
+GROK: clear chosen zones                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: clear chosen segments                                       
+ 
+GROK: clear chosen elements                                       
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: choose elements all                                         
+ 
+GROK: new zone                                                    
+ Total number of porous media zones now            2
+ Zone number 
+ Set to            2
+ Elements affected:         7200
+ 
+GROK: clear chosen zones                                          
+ 
+GROK: choose zone number                                          
+ Porous media zone            2  is chosen
+ 
+GROK: read properties                                             
+Search file: ./properties/material_sand.mprops                                                                   
+For property called: sand                                    
+Found material sand                                              
+MPROPS:    k isotropic
+ 		Kxx = Kyy = Kzz =   3.200000000000000E-004
+MPROPS:    porosity
+ 		Porosity   0.4000000    
+MPROPS:    unsaturated VAN GENUCHTEN FUNCTIONS
+ 		Unsaturated function:
+		UNSAT FUNCTION:    alpha                                                       
+            Alpha (power index, input)                        12.0500    
+		UNSAT FUNCTION:    beta                                                        
+            Beta (power index, input)                         5.67000    
+            Gamma (power index, computed)                    0.823633    
+		UNSAT FUNCTION:    residual saturation                                         
+            Residual water saturation (input)                5.000000E-02
+		UNSAT FUNCTION:    Minimum relative permeability                               
+            Minimum relative permeability (input)            1.000000E-03
+		UNSAT FUNCTION:    table smoothness factor                                     
+ 			Table smoothness factor						   1.000000000000000E-007
+		UNSAT FUNCTION:    generate tables from unsaturated functions                  
+		UNSAT FUNCTION:    end functions                                               
+    UNSAT FUNCTION EXIT
+MPROPS:    end material
+EXIT MPROPS
+ 
+ Porous media zone            2  has properties of 
+ sand                                    
+ 
+GROK: skip on                                                     
+       SKIP: clear chosen zones                                          
+       SKIP: clear chosen nodes                                          
+       SKIP: clear chosen elements                                       
+       SKIP: new zone                                                    
+       SKIP: 3                                                           
+       SKIP: clear chosen zones                                          
+       SKIP: choose zone number                                          
+       SKIP: 3                                                           
+       SKIP: read properties                                             
+       SKIP: sand_riverbed                                               
+GROK: skip off                                                    
+ 
+GROK: clear chosen zones                                          
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen elements                                       
+ 
+GROK: choose elements by layer                                    
+ Find elements whose layer numbers are between
+           1  to            2  inclusive
+ Elements affected:          320
+ 
+GROK: new zone                                                    
+ Total number of porous media zones now            3
+ Zone number 
+ Set to            3
+ Elements affected:          320
+ 
+GROK: clear chosen zones                                          
+ 
+GROK: choose zone number                                          
+ Porous media zone            3  is chosen
+ 
+GROK: read properties                                             
+Search file: ./properties/material_sand.mprops                                                                   
+For property called: flume_base                              
+Found material flume_base                                        
+MPROPS:    k isotropic
+ 		Kxx = Kyy = Kzz =    10.0000000000000     
+MPROPS:    porosity
+ 		Porosity    1.000000    
+MPROPS:    unsaturated VAN GENUCHTEN FUNCTIONS
+ 		Unsaturated function:
+		UNSAT FUNCTION:    alpha                                                       
+            Alpha (power index, input)                        12.0500    
+		UNSAT FUNCTION:    beta                                                        
+            Beta (power index, input)                         5.67000    
+            Gamma (power index, computed)                    0.823633    
+		UNSAT FUNCTION:    residual saturation                                         
+            Residual water saturation (input)                5.000000E-02
+		UNSAT FUNCTION:    Minimum relative permeability                               
+            Minimum relative permeability (input)            1.000000E-03
+		UNSAT FUNCTION:    table smoothness factor                                     
+ 			Table smoothness factor						   1.000000000000000E-007
+		UNSAT FUNCTION:    generate tables from unsaturated functions                  
+		UNSAT FUNCTION:    end functions                                               
+    UNSAT FUNCTION EXIT
+MPROPS:    end material
+EXIT MPROPS
+ 
+ Porous media zone            3  has properties of 
+ flume_base                              
+ 
+GROK: clear chosen zones                                          
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen elements                                       
+ 
+GROK: choose nodes all                                            
+ 
+GROK: initial head surface elevation                              
+ Initial head for all nodes equals surface elevation, for porous medium       
+ 
+GROK: clear chosen zones                                          
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen elements                                       
+ 
+GROK: choose nodes block                                          
+ Find nodes which are in the block defined by: 
+ X from    7.99000000000000       to    8.01000000000000     
+ Y from   0.000000000000000E+000  to   0.250000000000000     
+ Z from  -0.500000000000000       to   8.999999999999999E-003
+ Nodes affected:           10
+ 
+GROK: create node set                                             
+ 
+GROK: boundary condition                                          
+ 
+BC: type                                                        
+head                                                        
+BC: node set                                                    
+bottom                                  
+BC: time value table                                            
+BC: tecplot output                                              
+BC: end ! new specified head                                    
+EXIT BC
+BC applied to porous media domain
+ 
+GROK: head control                                                
+Adaptive timestepping - Maximum head change allowed per timestep      0.50000000    
+ 
+GROK: saturation control                                          
+Adaptive timestepping - Maximum saturation change allowed per timestep      0.50000000E-01
+ 
+GROK: maximum timestep                                            
+ Maximum timestep 
+ Set to    100.000000000000     
+ 
+GROK: initial timestep                                            
+ Initial timestep 
+ Set to   1.000000000000000E-005
+ 
+GROK: maximum timestep multiplier                                 
+ Maximum timestep multiplier
+ Set to    2.00000000000000     
+ 
+GROK: minimum timestep multiplier                                 
+ Minimum timestep multiplier
+ Set to   0.500000000000000     
+ 
+GROK: compute underrelaxation factor                              
+ 
+GROK: remove negative coefficients                                
+  (-) coefficients are removed at element-level during assembly
+ 
+GROK: nodal flow check tolerance                                  
+  Nodal flow check tolerance 
+ Set to   1.000000000000000E-003
+ 
+GROK: newton information                                          
+ 
+GROK: output times                                                
+OUTPUT TIME:    7776000.0
+OUTPUT TIME:    7791153.33333
+OUTPUT TIME:    end
+EXIT OUTPUT TIME
+ 
+GROK: make observation point                                      
+ Observation well name: S1-1                                    
+ New observation point number            1
+ 
+GROK: make observation point                                      
+ Observation well name: S1-2                                    
+ New observation point number            2
+ 
+GROK: make observation point                                      
+ Observation well name: S1-3                                    
+ New observation point number            3
+ 
+GROK: make observation point                                      
+ Observation well name: S1-4                                    
+ New observation point number            4
+ 
+GROK: make observation point                                      
+ Observation well name: S1-5                                    
+ New observation point number            5
+ 
+GROK: make observation point                                      
+ Observation well name: S1-6                                    
+ New observation point number            6
+ 
+GROK: make observation point                                      
+ Observation well name: S1-7                                    
+ New observation point number            7
+ 
+GROK: make observation point                                      
+ Observation well name: S1-8                                    
+ New observation point number            8
+ 
+GROK: make observation point                                      
+ Observation well name: S2-1                                    
+ New observation point number            9
+ 
+GROK: make observation point                                      
+ Observation well name: S2-2                                    
+ New observation point number           10
+ 
+GROK: make observation point                                      
+ Observation well name: S2-3                                    
+ New observation point number           11
+ 
+GROK: make observation point                                      
+ Observation well name: S2-4                                    
+ New observation point number           12
+ 
+GROK: make observation point                                      
+ Observation well name: S2-5                                    
+ New observation point number           13
+ 
+GROK: make observation point                                      
+ Observation well name: S2-6                                    
+ New observation point number           14
+ 
+GROK: make observation point                                      
+ Observation well name: S2-7                                    
+ New observation point number           15
+ 
+GROK: make observation point                                      
+ Observation well name: S2-8                                    
+ New observation point number           16
+ 
+GROK: make observation point                                      
+ Observation well name: S3-1                                    
+ New observation point number           17
+ 
+GROK: make observation point                                      
+ Observation well name: S3-2                                    
+ New observation point number           18
+ 
+GROK: make observation point                                      
+ Observation well name: S3-3                                    
+ New observation point number           19
+ 
+GROK: make observation point                                      
+ Observation well name: S3-4                                    
+ New observation point number           20
+ 
+GROK: make observation point                                      
+ Observation well name: S3-5                                    
+ New observation point number           21
+ 
+GROK: make observation point                                      
+ Observation well name: S3-6                                    
+ New observation point number           22
+ 
+GROK: make observation point                                      
+ Observation well name: S3-7                                    
+ New observation point number           23
+ 
+GROK: make observation point                                      
+ Observation well name: S3-8                                    
+ New observation point number           24
+ 
+GROK: make observation point                                      
+ Observation well name: S4-1                                    
+ New observation point number           25
+ 
+GROK: make observation point                                      
+ Observation well name: S4-2                                    
+ New observation point number           26
+ 
+GROK: make observation point                                      
+ Observation well name: S4-3                                    
+ New observation point number           27
+ 
+GROK: make observation point                                      
+ Observation well name: S4-4                                    
+ New observation point number           28
+ 
+GROK: make observation point                                      
+ Observation well name: S4-5                                    
+ New observation point number           29
+ 
+GROK: make observation point                                      
+ Observation well name: S4-6                                    
+ New observation point number           30
+ 
+GROK: make observation point                                      
+ Observation well name: S4-7                                    
+ New observation point number           31
+ 
+GROK: make observation point                                      
+ Observation well name: S4-8                                    
+ New observation point number           32
+ 
+GROK: make observation point                                      
+ Observation well name: S5-1                                    
+ New observation point number           33
+ 
+GROK: make observation point                                      
+ Observation well name: S5-2                                    
+ New observation point number           34
+ 
+GROK: make observation point                                      
+ Observation well name: S5-3                                    
+ New observation point number           35
+ 
+GROK: make observation point                                      
+ Observation well name: S5-4                                    
+ New observation point number           36
+ 
+GROK: make observation point                                      
+ Observation well name: S5-5                                    
+ New observation point number           37
+ 
+GROK: make observation point                                      
+ Observation well name: S5-6                                    
+ New observation point number           38
+ 
+GROK: make observation point                                      
+ Observation well name: S5-7                                    
+ New observation point number           39
+ 
+GROK: make observation point                                      
+ Observation well name: S5-8                                    
+ New observation point number           40
+ 
+GROK: make observation point                                      
+ Observation well name: S6-1                                    
+ New observation point number           41
+ 
+GROK: make observation point                                      
+ Observation well name: S6-2                                    
+ New observation point number           42
+ 
+GROK: make observation point                                      
+ Observation well name: S6-3                                    
+ New observation point number           43
+ 
+GROK: make observation point                                      
+ Observation well name: S6-4                                    
+ New observation point number           44
+ 
+GROK: make observation point                                      
+ Observation well name: S6-5                                    
+ New observation point number           45
+ 
+GROK: make observation point                                      
+ Observation well name: S6-6                                    
+ New observation point number           46
+ 
+GROK: make observation point                                      
+ Observation well name: S6-7                                    
+ New observation point number           47
+ 
+GROK: make observation point                                      
+ Observation well name: S6-8                                    
+ New observation point number           48
+ 
+GROK: use domain type                                             
+Operate on surface flow domains
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+  WARNING: This command should be used after all media are defined!
+ HYDROGRAPH  1
+  NAME: _x0.0_
+  Number of nodes:   2
+ Number of hydrographs now:   1
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH  2
+  NAME: _x0.1_
+  Number of nodes:   2
+ Number of hydrographs now:   2
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH  3
+  NAME: _x0.2_
+  Number of nodes:   2
+ Number of hydrographs now:   3
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH  4
+  NAME: _x0.3_
+  Number of nodes:   2
+ Number of hydrographs now:   4
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH  5
+  NAME: _x0.4_
+  Number of nodes:   2
+ Number of hydrographs now:   5
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH  6
+  NAME: _x0.5_
+  Number of nodes:   2
+ Number of hydrographs now:   6
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH  7
+  NAME: _x0.6_
+  Number of nodes:   2
+ Number of hydrographs now:   7
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH  8
+  NAME: _x0.7_
+  Number of nodes:   2
+ Number of hydrographs now:   8
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH  9
+  NAME: _x0.8_
+  Number of nodes:   2
+ Number of hydrographs now:   9
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 10
+  NAME: _x0.9_
+  Number of nodes:   2
+ Number of hydrographs now:  10
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 11
+  NAME: _x1.0_
+  Number of nodes:   2
+ Number of hydrographs now:  11
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 12
+  NAME: _x1.1_
+  Number of nodes:   2
+ Number of hydrographs now:  12
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 13
+  NAME: _x1.2_
+  Number of nodes:   2
+ Number of hydrographs now:  13
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 14
+  NAME: _x1.3_
+  Number of nodes:   2
+ Number of hydrographs now:  14
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 15
+  NAME: _x1.4_
+  Number of nodes:   2
+ Number of hydrographs now:  15
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 16
+  NAME: _x1.5_
+  Number of nodes:   2
+ Number of hydrographs now:  16
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 17
+  NAME: _x1.6_
+  Number of nodes:   2
+ Number of hydrographs now:  17
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 18
+  NAME: _x1.7_
+  Number of nodes:   2
+ Number of hydrographs now:  18
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 19
+  NAME: _x1.8_
+  Number of nodes:   2
+ Number of hydrographs now:  19
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 20
+  NAME: _x1.9_
+  Number of nodes:   2
+ Number of hydrographs now:  20
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 21
+  NAME: _x2.0_
+  Number of nodes:   2
+ Number of hydrographs now:  21
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 22
+  NAME: _x2.1_
+  Number of nodes:   2
+ Number of hydrographs now:  22
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 23
+  NAME: _x2.2_
+  Number of nodes:   2
+ Number of hydrographs now:  23
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 24
+  NAME: _x2.3_
+  Number of nodes:   2
+ Number of hydrographs now:  24
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 25
+  NAME: _x2.4_
+  Number of nodes:   2
+ Number of hydrographs now:  25
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 26
+  NAME: _x2.5_
+  Number of nodes:   2
+ Number of hydrographs now:  26
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 27
+  NAME: _x2.6_
+  Number of nodes:   2
+ Number of hydrographs now:  27
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 28
+  NAME: _x2.7_
+  Number of nodes:   2
+ Number of hydrographs now:  28
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 29
+  NAME: _x2.8_
+  Number of nodes:   2
+ Number of hydrographs now:  29
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 30
+  NAME: _x2.9_
+  Number of nodes:   2
+ Number of hydrographs now:  30
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 31
+  NAME: _x3.0_
+  Number of nodes:   2
+ Number of hydrographs now:  31
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 32
+  NAME: _x3.1_
+  Number of nodes:   2
+ Number of hydrographs now:  32
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 33
+  NAME: _x3.2_
+  Number of nodes:   2
+ Number of hydrographs now:  33
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 34
+  NAME: _x3.3_
+  Number of nodes:   2
+ Number of hydrographs now:  34
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 35
+  NAME: _x3.4_
+  Number of nodes:   2
+ Number of hydrographs now:  35
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 36
+  NAME: _x3.5_
+  Number of nodes:   2
+ Number of hydrographs now:  36
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 37
+  NAME: _x3.6_
+  Number of nodes:   2
+ Number of hydrographs now:  37
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 38
+  NAME: _x3.7_
+  Number of nodes:   2
+ Number of hydrographs now:  38
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 39
+  NAME: _x3.8_
+  Number of nodes:   2
+ Number of hydrographs now:  39
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 40
+  NAME: _x3.9_
+  Number of nodes:   2
+ Number of hydrographs now:  40
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 41
+  NAME: _x4.0_
+  Number of nodes:   2
+ Number of hydrographs now:  41
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 42
+  NAME: _x4.1_
+  Number of nodes:   2
+ Number of hydrographs now:  42
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 43
+  NAME: _x4.2_
+  Number of nodes:   2
+ Number of hydrographs now:  43
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 44
+  NAME: _x4.3_
+  Number of nodes:   2
+ Number of hydrographs now:  44
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 45
+  NAME: _x4.4_
+  Number of nodes:   2
+ Number of hydrographs now:  45
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 46
+  NAME: _x4.5_
+  Number of nodes:   2
+ Number of hydrographs now:  46
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 47
+  NAME: _x4.6_
+  Number of nodes:   2
+ Number of hydrographs now:  47
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 48
+  NAME: _x4.7_
+  Number of nodes:   2
+ Number of hydrographs now:  48
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 49
+  NAME: _x4.8_
+  Number of nodes:   2
+ Number of hydrographs now:  49
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 50
+  NAME: _x4.9_
+  Number of nodes:   2
+ Number of hydrographs now:  50
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 51
+  NAME: _x5.0_
+  Number of nodes:   2
+ Number of hydrographs now:  51
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 52
+  NAME: _x5.1_
+  Number of nodes:   2
+ Number of hydrographs now:  52
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 53
+  NAME: _x5.2_
+  Number of nodes:   2
+ Number of hydrographs now:  53
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 54
+  NAME: _x5.3_
+  Number of nodes:   2
+ Number of hydrographs now:  54
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 55
+  NAME: _x5.4_
+  Number of nodes:   2
+ Number of hydrographs now:  55
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 56
+  NAME: _x5.5_
+  Number of nodes:   2
+ Number of hydrographs now:  56
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 57
+  NAME: _x5.6_
+  Number of nodes:   2
+ Number of hydrographs now:  57
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 58
+  NAME: _x5.7_
+  Number of nodes:   2
+ Number of hydrographs now:  58
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 59
+  NAME: _x5.8_
+  Number of nodes:   2
+ Number of hydrographs now:  59
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 60
+  NAME: _x5.9_
+  Number of nodes:   2
+ Number of hydrographs now:  60
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 61
+  NAME: _x6.0_
+  Number of nodes:   2
+ Number of hydrographs now:  61
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 62
+  NAME: _x6.1_
+  Number of nodes:   2
+ Number of hydrographs now:  62
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 63
+  NAME: _x6.2_
+  Number of nodes:   2
+ Number of hydrographs now:  63
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 64
+  NAME: _x6.3_
+  Number of nodes:   2
+ Number of hydrographs now:  64
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 65
+  NAME: _x6.4_
+  Number of nodes:   2
+ Number of hydrographs now:  65
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 66
+  NAME: _x6.5_
+  Number of nodes:   2
+ Number of hydrographs now:  66
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 67
+  NAME: _x6.6_
+  Number of nodes:   2
+ Number of hydrographs now:  67
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 68
+  NAME: _x6.7_
+  Number of nodes:   2
+ Number of hydrographs now:  68
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 69
+  NAME: _x6.8_
+  Number of nodes:   2
+ Number of hydrographs now:  69
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 70
+  NAME: _x6.9_
+  Number of nodes:   2
+ Number of hydrographs now:  70
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 71
+  NAME: _x7.0_
+  Number of nodes:   2
+ Number of hydrographs now:  71
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 72
+  NAME: _x7.1_
+  Number of nodes:   2
+ Number of hydrographs now:  72
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 73
+  NAME: _x7.2_
+  Number of nodes:   2
+ Number of hydrographs now:  73
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 74
+  NAME: _x7.3_
+  Number of nodes:   2
+ Number of hydrographs now:  74
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 75
+  NAME: _x7.4_
+  Number of nodes:   2
+ Number of hydrographs now:  75
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 76
+  NAME: _x7.5_
+  Number of nodes:   2
+ Number of hydrographs now:  76
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 77
+  NAME: _x7.6_
+  Number of nodes:   2
+ Number of hydrographs now:  77
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 78
+  NAME: _x7.7_
+  Number of nodes:   2
+ Number of hydrographs now:  78
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 79
+  NAME: _x7.8_
+  Number of nodes:   2
+ Number of hydrographs now:  79
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 80
+  NAME: _x7.9_
+  Number of nodes:   2
+ Number of hydrographs now:  80
+ 
+GROK: clear chosen nodes                                          
+ 
+GROK: clear chosen faces                                          
+ 
+GROK: choose node                                                 
+ 
+GROK: choose node                                                 
+ 
+GROK: set hydrograph nodes                                        
+ HYDROGRAPH 81
+  NAME: _x8.0_
+  Number of nodes:   2
+ Number of hydrographs now:  81
+  
+------------------------------------------------------------------------
+  
+  
+  
+------------------------------------------------------------------------
+SUMMARY OF FINAL DATA SET
+------------------------------------------------------------------------
+  
+UNITS & PHYSICAL CONSTANTS
+Kilogram-metre-second         
+   
+ Acceleration due to gravity    9.80665000000000     
+ Reference fluid density        1000.00000000000     
+ Reference fluid viscosity     1.124000000000000E-003
+ Fluid compressibility         4.400000000000000E-010
+ Matrix compressibility        2.500000000000000E-009
+ Surface tension               7.182999700307846E-002
+------------------------------------------------------------------------
+  
+GRID 
+ Block elements are used
+                                   Number of nodes        14812
+                                Number of segments            0
+                                   Number of faces        29005
+                                Number of elements         7200
+             Number of 3d elements with well nodes            0
+  Number of fracture elements with well/frac nodes            0
+            Number of 3d elements with drain nodes            0
+  
+------------------------------------------------------------------------
+GENERAL
+ Full problem solution, not just data check 
+ System variably saturated
+ Use finite-difference method
+ Z-axis is in the vertical direction
+ Do not echo results to .lst file
+  
+------------------------------------------------------------------------
+POROUS MEDIA PROPERTIES
+  
+ZONE:  1
+ MATERIAL: 
+ Default sand                                                                   
+                      
+ Consists of            0  elements out of         7200
+ Kxx:  0.743800E-04
+ Kyy:  0.743800E-04
+ Kzz:  0.743800E-04
+ Specific storage:  0.100000E-03
+ Porosity:  0.375000    
+  
+ Constitutive Relations for Variably-Saturated Flow:
+  Pseudo-soil relations
+  Transition pressure        -0.300000    
+  
+  Relative permeability function for MATERIAL
+   applied ONLY to the X and Y flow terms
+  
+ZONE:  2
+ MATERIAL: 
+ sand                                                                           
+                      
+ Consists of         6880  elements out of         7200
+ Kxx:  0.320000E-03
+ Kyy:  0.320000E-03
+ Kzz:  0.320000E-03
+ Specific storage:  0.100000E-03
+ Porosity:  0.400000    
+  
+ Constitutive Relations for Variably-Saturated Flow:
+  Van Genuchten function parameters:
+            Residual water saturation                        5.000000E-02
+            Alpha (power index)                               12.0500    
+            Beta (power index)                                5.67000    
+            Gamma (computed)                                 0.823633    
+            Pore connectivity                                0.500000    
+            Minimum relative permeability                    1.000000E-03
+  
+ZONE:  3
+ MATERIAL: 
+ flume_base                                                                     
+                      
+ Consists of          320  elements out of         7200
+ Kxx:   10.0000    
+ Kyy:   10.0000    
+ Kzz:   10.0000    
+ Specific storage:  0.100000E-03
+ Porosity:   1.00000    
+  
+ Constitutive Relations for Variably-Saturated Flow:
+  Van Genuchten function parameters:
+            Residual water saturation                        5.000000E-02
+            Alpha (power index)                               12.0500    
+            Beta (power index)                                5.67000    
+            Gamma (computed)                                 0.823633    
+            Pore connectivity                                0.500000    
+            Minimum relative permeability                    1.000000E-03
+  
+        7200  elements of         7200  have been assigned properties 
+  
+------------------------------------------------------------------------
+DUAL CONTINUUM PROPERTIES
+  No dual continuum elements
+  
+------------------------------------------------------------------------
+FRACTURE PROPERTIES
+  No fracture elements
+  
+------------------------------------------------------------------------
+SURFACE FLOW PROPERTIES
+  
+ZONE:  1
+ MATERIAL: flume                                             
+ Consists of          160  elements out of          160
+ Friction x:  0.200000E-01
+ Friction y:  0.200000E-01
+ Rill storage height:  0.100000E-03
+ Obstruction storage height:   0.00000    
+ Surface flow scheme uses dual node approach
+ Coupling length:  0.100000E-02
+         160  elements of          160  have been assigned properties 
+  
+------------------------------------------------------------------------
+CHANNEL FLOW PROPERTIES
+  No channel flow elements
+  
+------------------------------------------------------------------------
+WELL FLOW PROPERTIES
+  No well flow elements
+  
+------------------------------------------------------------------------
+WELL FLOW PROPERTIES
+  No well flow elements
+  
+------------------------------------------------------------------------
+HEAT TRANSFER PROPERTIES
+  No heat transfer simulated
+  
+------------------------------------------------------------------------
+VARIABLE DENSITY FLOW PROPERTIES
+  No variable density flow simulated
+  
+------------------------------------------------------------------------
+ET PROPERTIES
+  No evapotranspiration
+  
+------------------------------------------------------------------------
+FLOW SOLUTION
+ Starting from initial condition
+ Hydraulic head used for input
+ Hydraulic head used for output
+ Mass balance calculated
+  
+  Timestep controls:
+  Transient flow solution
+  Initial time step:   1.000000000000000E-005
+  Flow time-weighting:    1.00000000000000     
+ Adaptive timestepping - maximum head change per timestep:  0.500000    
+ Adaptive timestepping - maximum saturation change per timestep:  0.500000E-01
+ Adaptive timestepping - maximum Newton iterations per timestep:      10
+ Adaptive timestepping - maximum surface water depth change per timestep:   1000.00    
+ 
+ Iterative Flow Solver
+  No extra info written during flow solver iteration
+  Preconditioning Phase:
+   Level-based factorization WITHOUT red/black system reduction
+    -Level of fill to be preserved in ILU factorization =            0
+   Non-symmetric matrix scaling in solver
+  Solving Phase:
+   Convergence criteria (restol) =   1.000000000000000E-010
+   Solver acceleration technique =            3
+    3 = CGSTAB-P acceleration technique
+   Maximum number of stall/restart cycles permitted (north) =           30
+   Stall check parameter (ischek) =           15
+   Range for stall (rstall) =   1.000000000000000E-003
+  
+ Newton Raphson Iteration Parameters
+ Maximum number of Newton iterations allowed           15
+ Epsilon value for numerical derivative  0.100000E-03
+ Absolute convergence criterion   0.100000E-04
+ Residual convergence criterion   0.100000E-07
+ Underrelaxation factor    1.00000    
+ Using upstream permeability
+ Under relaxation factor is computed
+  Parameters for automatic control of Newton interation
+     Newton Maximum update for Head - subsurface   1.00000    
+     Newton Maximum update for Head - overland  0.100000E-01
+     Minimum relaxation factor allowed  0.100000E-02
+
+ Observation Well Data
+ ---------------------
+ Number of observation wells:    48
+
+     Data for observation well:  1
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       1943       0.500000       0.00000      0.485000E-01
+
+     Data for observation well:  2
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       3553       0.500000       0.00000      0.985000E-01
+
+     Data for observation well:  3
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       5163       0.500000       0.00000      0.148500    
+
+     Data for observation well:  4
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       6773       0.500000       0.00000      0.198500    
+
+     Data for observation well:  5
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       8383       0.500000       0.00000      0.248500    
+
+     Data for observation well:  6
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       9993       0.500000       0.00000      0.298500    
+
+     Data for observation well:  7
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      11603       0.500000       0.00000      0.348500    
+
+     Data for observation well:  8
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      13213       0.500000       0.00000      0.398500    
+
+     Data for observation well:  9
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       1963        1.50000       0.00000      0.455000E-01
+
+     Data for observation well: 10
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       3573        1.50000       0.00000      0.955000E-01
+
+     Data for observation well: 11
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       5183        1.50000       0.00000      0.145500    
+
+     Data for observation well: 12
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       6793        1.50000       0.00000      0.195500    
+
+     Data for observation well: 13
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       8403        1.50000       0.00000      0.245500    
+
+     Data for observation well: 14
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      10013        1.50000       0.00000      0.295500    
+
+     Data for observation well: 15
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      11623        1.50000       0.00000      0.345500    
+
+     Data for observation well: 16
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      13233        1.50000       0.00000      0.395500    
+
+     Data for observation well: 17
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       1983        2.50000       0.00000      0.425000E-01
+
+     Data for observation well: 18
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       3593        2.50000       0.00000      0.925000E-01
+
+     Data for observation well: 19
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       5203        2.50000       0.00000      0.142500    
+
+     Data for observation well: 20
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       6813        2.50000       0.00000      0.192500    
+
+     Data for observation well: 21
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       8423        2.50000       0.00000      0.242500    
+
+     Data for observation well: 22
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      10033        2.50000       0.00000      0.292500    
+
+     Data for observation well: 23
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      11643        2.50000       0.00000      0.342500    
+
+     Data for observation well: 24
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      13253        2.50000       0.00000      0.392500    
+
+     Data for observation well: 25
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       2003        3.50000       0.00000      0.395000E-01
+
+     Data for observation well: 26
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       3613        3.50000       0.00000      0.895000E-01
+
+     Data for observation well: 27
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       5223        3.50000       0.00000      0.139500    
+
+     Data for observation well: 28
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       6833        3.50000       0.00000      0.189500    
+
+     Data for observation well: 29
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       8443        3.50000       0.00000      0.239500    
+
+     Data for observation well: 30
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      10053        3.50000       0.00000      0.289500    
+
+     Data for observation well: 31
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      11663        3.50000       0.00000      0.339500    
+
+     Data for observation well: 32
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      13273        3.50000       0.00000      0.389500    
+
+     Data for observation well: 33
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       2023        4.50000       0.00000      0.365000E-01
+
+     Data for observation well: 34
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       3633        4.50000       0.00000      0.865000E-01
+
+     Data for observation well: 35
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       5243        4.50000       0.00000      0.136500    
+
+     Data for observation well: 36
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       6853        4.50000       0.00000      0.186500    
+
+     Data for observation well: 37
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       8463        4.50000       0.00000      0.236500    
+
+     Data for observation well: 38
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      10073        4.50000       0.00000      0.286500    
+
+     Data for observation well: 39
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      11683        4.50000       0.00000      0.336500    
+
+     Data for observation well: 40
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      13293        4.50000       0.00000      0.386500    
+
+     Data for observation well: 41
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       2043        5.50000       0.00000      0.335000E-01
+
+     Data for observation well: 42
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       3653        5.50000       0.00000      0.835000E-01
+
+     Data for observation well: 43
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       5263        5.50000       0.00000      0.133500    
+
+     Data for observation well: 44
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       6873        5.50000       0.00000      0.183500    
+
+     Data for observation well: 45
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+       8483        5.50000       0.00000      0.233500    
+
+     Data for observation well: 46
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      10093        5.50000       0.00000      0.283500    
+
+     Data for observation well: 47
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      11703        5.50000       0.00000      0.333500    
+
+     Data for observation well: 48
+     ------------------------------
+     Number of nodes:    1
+     Well nodes            x-y-z location
+     ----------            --------------
+      13313        5.50000       0.00000      0.383500    
+
+ Hydrograph Data
+ ---------------------
+ Number of hydrographs:    81
+
+     Data for hydrograph:  1
+     Name: _x0.0_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14813        0.00000       0.00000      0.440000    
+      14974        0.00000      0.250000      0.440000    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph:  2
+     Name: _x0.1_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14815       0.100000       0.00000      0.439700    
+      14976       0.100000      0.250000      0.439700    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph:  3
+     Name: _x0.2_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14817       0.200000       0.00000      0.439400    
+      14978       0.200000      0.250000      0.439400    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph:  4
+     Name: _x0.3_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14819       0.300000       0.00000      0.439100    
+      14980       0.300000      0.250000      0.439100    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph:  5
+     Name: _x0.4_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14821       0.400000       0.00000      0.438800    
+      14982       0.400000      0.250000      0.438800    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph:  6
+     Name: _x0.5_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14823       0.500000       0.00000      0.438500    
+      14984       0.500000      0.250000      0.438500    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph:  7
+     Name: _x0.6_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14825       0.600000       0.00000      0.438200    
+      14986       0.600000      0.250000      0.438200    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph:  8
+     Name: _x0.7_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14827       0.700000       0.00000      0.437900    
+      14988       0.700000      0.250000      0.437900    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph:  9
+     Name: _x0.8_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14829       0.800000       0.00000      0.437600    
+      14990       0.800000      0.250000      0.437600    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 10
+     Name: _x0.9_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14831       0.900000       0.00000      0.437300    
+      14992       0.900000      0.250000      0.437300    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 11
+     Name: _x1.0_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14833        1.00000       0.00000      0.437000    
+      14994        1.00000      0.250000      0.437000    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 12
+     Name: _x1.1_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14835        1.10000       0.00000      0.436700    
+      14996        1.10000      0.250000      0.436700    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 13
+     Name: _x1.2_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14837        1.20000       0.00000      0.436400    
+      14998        1.20000      0.250000      0.436400    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 14
+     Name: _x1.3_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14839        1.30000       0.00000      0.436100    
+      15000        1.30000      0.250000      0.436100    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 15
+     Name: _x1.4_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14841        1.40000       0.00000      0.435800    
+      15002        1.40000      0.250000      0.435800    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 16
+     Name: _x1.5_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14843        1.50000       0.00000      0.435500    
+      15004        1.50000      0.250000      0.435500    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 17
+     Name: _x1.6_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14845        1.60000       0.00000      0.435200    
+      15006        1.60000      0.250000      0.435200    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 18
+     Name: _x1.7_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14847        1.70000       0.00000      0.434900    
+      15008        1.70000      0.250000      0.434900    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 19
+     Name: _x1.8_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14849        1.80000       0.00000      0.434600    
+      15010        1.80000      0.250000      0.434600    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 20
+     Name: _x1.9_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14851        1.90000       0.00000      0.434300    
+      15012        1.90000      0.250000      0.434300    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 21
+     Name: _x2.0_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14853        2.00000       0.00000      0.434000    
+      15014        2.00000      0.250000      0.434000    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 22
+     Name: _x2.1_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14855        2.10000       0.00000      0.433700    
+      15016        2.10000      0.250000      0.433700    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 23
+     Name: _x2.2_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14857        2.20000       0.00000      0.433400    
+      15018        2.20000      0.250000      0.433400    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 24
+     Name: _x2.3_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14859        2.30000       0.00000      0.433100    
+      15020        2.30000      0.250000      0.433100    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 25
+     Name: _x2.4_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14861        2.40000       0.00000      0.432800    
+      15022        2.40000      0.250000      0.432800    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 26
+     Name: _x2.5_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14863        2.50000       0.00000      0.432500    
+      15024        2.50000      0.250000      0.432500    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 27
+     Name: _x2.6_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14865        2.60000       0.00000      0.432200    
+      15026        2.60000      0.250000      0.432200    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 28
+     Name: _x2.7_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14867        2.70000       0.00000      0.431900    
+      15028        2.70000      0.250000      0.431900    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 29
+     Name: _x2.8_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14869        2.80000       0.00000      0.431600    
+      15030        2.80000      0.250000      0.431600    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 30
+     Name: _x2.9_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14871        2.90000       0.00000      0.431300    
+      15032        2.90000      0.250000      0.431300    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 31
+     Name: _x3.0_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14873        3.00000       0.00000      0.431000    
+      15034        3.00000      0.250000      0.431000    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 32
+     Name: _x3.1_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14875        3.10000       0.00000      0.430700    
+      15036        3.10000      0.250000      0.430700    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 33
+     Name: _x3.2_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14877        3.20000       0.00000      0.430400    
+      15038        3.20000      0.250000      0.430400    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 34
+     Name: _x3.3_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14879        3.30000       0.00000      0.430100    
+      15040        3.30000      0.250000      0.430100    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 35
+     Name: _x3.4_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14881        3.40000       0.00000      0.429800    
+      15042        3.40000      0.250000      0.429800    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 36
+     Name: _x3.5_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14883        3.50000       0.00000      0.429500    
+      15044        3.50000      0.250000      0.429500    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 37
+     Name: _x3.6_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14885        3.60000       0.00000      0.429200    
+      15046        3.60000      0.250000      0.429200    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 38
+     Name: _x3.7_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14887        3.70000       0.00000      0.428900    
+      15048        3.70000      0.250000      0.428900    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 39
+     Name: _x3.8_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14889        3.80000       0.00000      0.428600    
+      15050        3.80000      0.250000      0.428600    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 40
+     Name: _x3.9_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14891        3.90000       0.00000      0.428300    
+      15052        3.90000      0.250000      0.428300    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 41
+     Name: _x4.0_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14893        4.00000       0.00000      0.428000    
+      15054        4.00000      0.250000      0.428000    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 42
+     Name: _x4.1_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14895        4.10000       0.00000      0.427700    
+      15056        4.10000      0.250000      0.427700    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 43
+     Name: _x4.2_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14897        4.20000       0.00000      0.427400    
+      15058        4.20000      0.250000      0.427400    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 44
+     Name: _x4.3_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14899        4.30000       0.00000      0.427100    
+      15060        4.30000      0.250000      0.427100    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 45
+     Name: _x4.4_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14901        4.40000       0.00000      0.426800    
+      15062        4.40000      0.250000      0.426800    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 46
+     Name: _x4.5_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14903        4.50000       0.00000      0.426500    
+      15064        4.50000      0.250000      0.426500    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 47
+     Name: _x4.6_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14905        4.60000       0.00000      0.426200    
+      15066        4.60000      0.250000      0.426200    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 48
+     Name: _x4.7_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14907        4.70000       0.00000      0.425900    
+      15068        4.70000      0.250000      0.425900    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 49
+     Name: _x4.8_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14909        4.80000       0.00000      0.425600    
+      15070        4.80000      0.250000      0.425600    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 50
+     Name: _x4.9_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14911        4.90000       0.00000      0.425300    
+      15072        4.90000      0.250000      0.425300    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 51
+     Name: _x5.0_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14913        5.00000       0.00000      0.425000    
+      15074        5.00000      0.250000      0.425000    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 52
+     Name: _x5.1_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14915        5.10000       0.00000      0.424700    
+      15076        5.10000      0.250000      0.424700    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 53
+     Name: _x5.2_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14917        5.20000       0.00000      0.424400    
+      15078        5.20000      0.250000      0.424400    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 54
+     Name: _x5.3_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14919        5.30000       0.00000      0.424100    
+      15080        5.30000      0.250000      0.424100    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 55
+     Name: _x5.4_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14921        5.40000       0.00000      0.423800    
+      15082        5.40000      0.250000      0.423800    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 56
+     Name: _x5.5_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14923        5.50000       0.00000      0.423500    
+      15084        5.50000      0.250000      0.423500    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 57
+     Name: _x5.6_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14925        5.60000       0.00000      0.423200    
+      15086        5.60000      0.250000      0.423200    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 58
+     Name: _x5.7_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14927        5.70000       0.00000      0.422900    
+      15088        5.70000      0.250000      0.422900    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 59
+     Name: _x5.8_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14929        5.80000       0.00000      0.422600    
+      15090        5.80000      0.250000      0.422600    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 60
+     Name: _x5.9_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14931        5.90000       0.00000      0.422300    
+      15092        5.90000      0.250000      0.422300    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 61
+     Name: _x6.0_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14933        6.00000       0.00000      0.422000    
+      15094        6.00000      0.250000      0.422000    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 62
+     Name: _x6.1_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14935        6.10000       0.00000      0.421700    
+      15096        6.10000      0.250000      0.421700    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 63
+     Name: _x6.2_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14937        6.20000       0.00000      0.421400    
+      15098        6.20000      0.250000      0.421400    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 64
+     Name: _x6.3_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14939        6.30000       0.00000      0.421100    
+      15100        6.30000      0.250000      0.421100    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 65
+     Name: _x6.4_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14941        6.40000       0.00000      0.420800    
+      15102        6.40000      0.250000      0.420800    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 66
+     Name: _x6.5_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14943        6.50000       0.00000      0.420500    
+      15104        6.50000      0.250000      0.420500    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 67
+     Name: _x6.6_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14945        6.60000       0.00000      0.420200    
+      15106        6.60000      0.250000      0.420200    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 68
+     Name: _x6.7_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14947        6.70000       0.00000      0.419900    
+      15108        6.70000      0.250000      0.419900    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 69
+     Name: _x6.8_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14949        6.80000       0.00000      0.419600    
+      15110        6.80000      0.250000      0.419600    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 70
+     Name: _x6.9_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14951        6.90000       0.00000      0.419300    
+      15112        6.90000      0.250000      0.419300    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 71
+     Name: _x7.0_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14953        7.00000       0.00000      0.419000    
+      15114        7.00000      0.250000      0.419000    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 72
+     Name: _x7.1_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14955        7.10000       0.00000      0.418700    
+      15116        7.10000      0.250000      0.418700    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 73
+     Name: _x7.2_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14957        7.20000       0.00000      0.418400    
+      15118        7.20000      0.250000      0.418400    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 74
+     Name: _x7.3_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14959        7.30000       0.00000      0.418100    
+      15120        7.30000      0.250000      0.418100    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 75
+     Name: _x7.4_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14961        7.40000       0.00000      0.417800    
+      15122        7.40000      0.250000      0.417800    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 76
+     Name: _x7.5_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14963        7.50000       0.00000      0.417500    
+      15124        7.50000      0.250000      0.417500    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 77
+     Name: _x7.6_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14965        7.60000       0.00000      0.417200    
+      15126        7.60000      0.250000      0.417200    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 78
+     Name: _x7.7_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14967        7.70000       0.00000      0.416900    
+      15128        7.70000      0.250000      0.416900    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 79
+     Name: _x7.8_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14969        7.80000       0.00000      0.416600    
+      15130        7.80000      0.250000      0.416600    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 80
+     Name: _x7.9_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14971        7.90000       0.00000      0.416300    
+      15132        7.90000      0.250000      0.416300    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+     Data for hydrograph: 81
+     Name: _x8.0_
+     --------------------------------------------------
+     Number of nodes (input):    2
+     Hydrograph nodes            x-y-z location
+     ----------------            --------------
+      14973        8.00000       0.00000      0.416000    
+      15134        8.00000      0.250000      0.416000    
+     Actual number of nodes:    2
+     --------------------------------------------------
+
+ Target times
+ -------------------------------------
+  Step #    Timestep             Time 
+    1      7776000.0          7776000.0    
+    2      1816.0000          7777816.0    
+    3      1457.0000          7779273.0    
+    4      1527.0000          7780800.0    
+    5      2220.0000          7783020.0    
+    6      1984.0000          7785004.0    
+    7      1846.0000          7786850.0    
+    8      1270.0000          7788120.0    
+    9      1680.0000          7789800.0    
+   10      200.00000          7790000.0    
+   11      1153.3333          7791153.3    
+ -------------------------------------
+
+
+
+                    ---- Normal exit ----
+
+
